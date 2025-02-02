@@ -2,7 +2,6 @@ const User = require('../models/User');
 
 module.exports = {
     index: async (req, res) => {
-
       try {
         const users = await User.find()
         if (users.length > 0) {
@@ -23,10 +22,9 @@ module.exports = {
           success: false
         });
       }
-
     },
-    store: async (req, res) => {
 
+    store: async (req, res) => {
       try {
         const userC = await User.create(req.body)
         res.json({
@@ -41,10 +39,9 @@ module.exports = {
           success: false
         });
       }
-        
     },
-    update: async (req, res) => {
 
+    update: async (req, res) => {
       try {
         const userU = await User.findByIdAndUpdate(req.params.id, req.body, {
           new: true,
@@ -62,10 +59,9 @@ module.exports = {
           success: false
         });
       }
-        
     },
-    delete: async (req, res) => {
 
+    delete: async (req, res) => {
       try {
         await User.findByIdAndDelete(req.params.id)
         res.json({
@@ -79,8 +75,8 @@ module.exports = {
           success: false
         });
       }
-
     },
+
     show: async (req, res) => {
       try {
         const userID = await User.findById(req.params.id);
@@ -101,19 +97,4 @@ module.exports = {
         })
       }
     }
-}
-
-
- 
-// let users = [
-//     {
-//       id: 1,
-//       name: "Zidan",
-//       email: "mbuh123@gmail.com"
-//     },
-//     {
-//       id: 2,
-//       name: "dany",
-//       email: "danyfayza@gmail.com"
-//     },
-//   ]
+};
